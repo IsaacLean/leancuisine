@@ -1,3 +1,5 @@
+build/
 node_modules/
-.DS_Store
-auth.js
+.eslintcache
+npm-debug.log
+stats.json
