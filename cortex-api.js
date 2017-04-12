@@ -26,8 +26,6 @@ function CortexAPI(env, org, apiKey) {
       throw new Error('Invalid vars (Vars must be an array of variables you want to type check)');
     }
 
-    var results = [];
-
     for(var i in vars) {
       var variable = vars[i];
 
@@ -71,15 +69,15 @@ function CortexAPI(env, org, apiKey) {
     req.setRequestHeader('Medable-Client-Key', settings.apiKey);
     req.setRequestHeader('Content-Type', 'application/json');
     req.withCredentials = true;
-    // req.onload = function(e) {
-    //   if(req.readyState === 4) {
-    //     if(req.status === 200) {
-    //       console.log(req.responseText);
-    //     } else {
-    //       console.error(req.statusText);
-    //     }
-    //   }
-    // };
+    /*req.onload = function(e) {
+      if(req.readyState === 4) {
+        if(req.status === 200) {
+          console.log(req.responseText);
+        } else {
+          console.error(req.statusText);
+        }
+      }
+    };*/
 
     if(method.toUpperCase() === 'GET') {
       req.send();
