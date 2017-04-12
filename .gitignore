@@ -1,5 +1,0 @@
-build/
-node_modules/
-.eslintcache
-npm-debug.log
-stats.json
