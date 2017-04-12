@@ -50,7 +50,9 @@ function CortexAPI(env, org, apiKey) {
     var url = 'https://'+env+'.medable.com/'+settings.org+'/v2/'+path;
     var payload = null;
 
-    switch(method.toUpperCase()) {
+    method = method.toUpperCase();
+
+    switch(method) {
       case 'GET':
         // TODO: add support for query string
         req.open('GET', url);
@@ -79,7 +81,7 @@ function CortexAPI(env, org, apiKey) {
       }
     };*/
 
-    if(method.toUpperCase() === 'GET') {
+    if(method === 'GET') {
       req.send();
     } else {
       req.send(payload);
