@@ -45,7 +45,9 @@ function CortexAPI(env, org, apiKey) {
   // @public: Make an XMLHttpRequest to Medable Cortex API
   this.request = function(method, path, data, callback) {
     typeCheckVars('string', [method, path]);
-    typeCheckVar('function', callback);
+    if(callback) {
+      typeCheckVar('function', callback);
+    }
 
     var req = new XMLHttpRequest();
     var url = 'https://'+env+'.medable.com/'+settings.org+'/v2/'+path;
