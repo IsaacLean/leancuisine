@@ -43,8 +43,9 @@ function CortexAPI(env, org, apiKey) {
   Object.freeze(settings);
 
   // @public: Make an XMLHttpRequest to Medable Cortex API
-  this.request = function(method, path, data) {
+  this.request = function(method, path, data, callback) {
     typeCheckVars('string', [method, path]);
+    typeCheckVar('function', callback);
 
     var req = new XMLHttpRequest();
     var url = 'https://'+env+'.medable.com/'+settings.org+'/v2/'+path;
@@ -71,15 +72,17 @@ function CortexAPI(env, org, apiKey) {
     req.setRequestHeader('Medable-Client-Key', settings.apiKey);
     req.setRequestHeader('Content-Type', 'application/json');
     req.withCredentials = true;
-    /*req.onload = function(e) {
+    req.onload = function(e) {
       if(req.readyState === 4) {
         if(req.status === 200) {
-          console.log(req.responseText);
+          if(callback) {
+            callback(req.responseText);
+          }
         } else {
           console.error(req.statusText);
         }
       }
-    };*/
+    };
 
     if(method === 'GET') {
       req.send();

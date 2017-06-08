@@ -5,9 +5,26 @@
     <title>LeanCuisine - Medable Cortex API Test</title>
   </head>
   <body>
-    <h1>Medable Cortex API Test</h1>
-    <p>Hello world!</p>
-    <a href="https://www.medable.com">Medable is awesome!!!</a>
+    <div>
+      <h1>Medable Cortex API Test</h1>
+      <p>Hello world!</p>
+      <a href="https://www.medable.com">Medable is awesome!!!</a>
+    </div>
+    <div>
+      <h2>Form</h2>
+      <form id="test_form">
+        <div>
+          <label for="c_test_str">Test String</label>
+          <input type="text" id="c_test_str" name="c_test_str" />
+        </div>
+        <div>
+          <label for="c_image">Image</label>
+          <input type="file" id="c_image" name="c_image" />
+          <div id="img_preview"></div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
     <script src="cortex-api.js"></script>
     <script src="script.js"></script>
   </body>
